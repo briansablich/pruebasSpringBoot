@@ -5,19 +5,20 @@
 
 package com.prueba.prueba.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PrimerControlador {
     
-    @GetMapping("/hello")
-    public String sayHello(){
-        return "Hola mundo, probando...";
+    @GetMapping("/hello/{nombre}")
+    public String sayHello(@PathVariable String nombre){
+        return "Hola mundo, probando..." + nombre;
     }
     
-    @GetMapping("/goodbye")
-    public String sayGoodBye(){
-        return "Chau mundo, abandonando...";                
+    @GetMapping("/goodbye/{nombre}/{edad}")
+    public String sayGoodBye(@PathVariable String nombre, @PathVariable int edad){
+        return "Chau mundo, abandonando..." + " Nombre: " + nombre + " Edad: " + edad;
     }
     
 }
