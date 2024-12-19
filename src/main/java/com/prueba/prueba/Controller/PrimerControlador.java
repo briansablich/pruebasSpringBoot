@@ -22,4 +22,10 @@ public class PrimerControlador {
         return "Chau mundo, abandonando..." + " Nombre: " + nombre + " Edad: " + edad;
     }
     
+    @GetMapping("/conversion")
+    public String convertir(@RequestParam double cantidad){
+        double resultado = cantidad / 3.78541;
+        return resultado + " galones";
+    }
+    
 }
