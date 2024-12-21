@@ -5,6 +5,7 @@
 
 package com.prueba.prueba.Controller;
 import com.prueba.prueba.Cliente;
+import com.prueba.prueba.PlatosRestaurante;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -57,4 +58,29 @@ public class PrimerControlador {
     ResponseEntity<String> traerRespuesta(){
         return new ResponseEntity<>("Mensaje Response Entity", HttpStatus.OK);
     }
+    
+    //Ejercicio Restaurante
+    
+    public ArrayList<PlatosRestaurante> cargarPlatos(){
+        ArrayList<PlatosRestaurante> listaPlatos = new ArrayList<PlatosRestaurante>();
+        listaPlatos.add(new PlatosRestaurante(1L,"Fideos",100D,"Con salsa"));
+        listaPlatos.add(new PlatosRestaurante(2L,"Arroz",150D,"Con vegetales"));
+        listaPlatos.add(new PlatosRestaurante(3L,"Ravioles",50D,"Con queso"));
+        listaPlatos.add(new PlatosRestaurante(4L,"Pizza",199D,"Napolitana"));
+        listaPlatos.add(new PlatosRestaurante(5L,"Lentejas",200D,"Con huevo"));
+        return listaPlatos;
+    }
+    
+    @GetMapping("/platos/{idplato}")
+    public String platos(@PathVariable long idplato){
+        ArrayList<PlatosRestaurante> listaPlatos = cargarPlatos();
+        PlatosRestaurante platoSeleccionado = new PlatosRestaurante();
+        for(PlatosRestaurante pr:listaPlatos){
+            if(pr.getIdPlato() == idplato){
+                platoSeleccionado = pr;
+            }
+        }
+        return platoSeleccionado.toString();
+    }
+    
 }
