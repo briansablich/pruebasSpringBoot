@@ -31,7 +31,7 @@ public class PrimerControlador {
         return resultado + " galones";
     }
     
-    @PostMapping
+    @PostMapping("/cliente")
     public void nuevoCliente(@RequestBody Cliente cli){
         System.out.println("Cliente id: " + cli.getId());
         System.out.println("Nombre y apellido: " + cli.getNombre() + " " + cli.getApellido());
