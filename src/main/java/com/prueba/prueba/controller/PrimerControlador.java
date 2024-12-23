@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.prueba.prueba.Controller;
-import com.prueba.prueba.Cliente;
-import com.prueba.prueba.PlatosRestaurante;
+package com.prueba.prueba.controller;
+import com.prueba.prueba.model.Cliente;
+import com.prueba.prueba.model.PlatosRestaurante;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
