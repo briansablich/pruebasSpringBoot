@@ -1,14 +1,21 @@
 
 package com.prueba.prueba.service;
 
+import com.prueba.prueba.model.Cliente;
+import com.prueba.prueba.repository.ClienteRepository;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ClienteService implements IClienteService{
 
+    @Autowired
+    ClienteRepository repo;
+    
     @Override
-    public void traerCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Cliente> traerClientes() {
+        return repo.traerClientes();
     }
     
 }

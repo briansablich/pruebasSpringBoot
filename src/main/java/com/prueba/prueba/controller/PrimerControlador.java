@@ -6,8 +6,10 @@
 package com.prueba.prueba.controller;
 import com.prueba.prueba.model.Cliente;
 import com.prueba.prueba.model.PlatosRestaurante;
+import com.prueba.prueba.service.IClienteService;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PrimerControlador {
+    
+    @Autowired
+    IClienteService cliSer;
     
     @GetMapping("/hello")
     public String sayHello(@RequestParam String nombre, @RequestParam String email){
@@ -81,6 +86,11 @@ public class PrimerControlador {
             }
         }
         return platoSeleccionado.toString();
+    }
+    
+    @GetMapping("/traertodoslosclientes")
+    public List<Cliente> traerTodosLosClientes(){
+        return cliSer.traerClientes();
     }
     
 }
